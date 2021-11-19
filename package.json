@@ -1,0 +1,26 @@
+{
+  "name": "webdriverio-fw",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "wdio run wdio.conf.js",
+    "report": "allure generate allure-results --clean && allure open"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@types/node": "^16.11.7",
+    "@wdio/allure-reporter": "^7.16.8",
+    "@wdio/cli": "^7.16.8",
+    "allure-commandline": "^2.13.8"
+  },
+  "devDependencies": {
+    "@wdio/local-runner": "^7.16.8",
+    "@wdio/mocha-framework": "^7.16.6",
+    "@wdio/spec-reporter": "^7.16.4",
+    "chromedriver": "^96.0.0",
+    "wdio-chromedriver-service": "^7.2.2"
+  }
+}
