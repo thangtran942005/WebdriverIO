@@ -98,7 +98,7 @@ exports.config = {
     // with `/`, the base url gets prepended, not including the path portion of your baseUrl.
     // If your `url` parameter starts without a scheme or `/` (like `some/path`), the base url
     // gets prepended directly.
-    baseUrl: 'http://localhost',
+    baseUrl: 'https://element-challenge.flood.io',
     //
     // Default timeout for all waitFor* commands.
     waitforTimeout: 10000,
@@ -166,7 +166,7 @@ exports.config = {
      */
      onPrepare: function (config, capabilities) {
         fs.rmdirSync('./allure-results', { recursive: true })
-        // fs.rmdirSync('./allure-report', { recursive: true })
+        fs.rmdirSync('./logs', { recursive: true })
     },
     /**
      * Gets executed before a worker process is spawned and can be used to initialise specific service
@@ -285,7 +285,7 @@ exports.config = {
     onComplete: function(exitCode, config, capabilities, results) {
         const reportError = new Error('Could not generate Allure report')
         const generation = allure(['generate', 'allure-results', '--clean'])
-        // allure(['open'])
+        allure(['open'])
         return new Promise((resolve, reject) => {
             const generationTimeout = setTimeout( () => reject(reportError), 5000)
 

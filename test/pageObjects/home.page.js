@@ -8,8 +8,6 @@ const {uiButton, uiRadio, uiMenu, uiTextbox} = require('./controls')
 
     get lbl_Category () { return $(`//p[@id='challenge-2-category']`)}
 
-    // get giftCode () { return $('//h6[@data-test-gift-code]')}
-
     /**
      * overwrite specific options to adapt it to page object
      */
