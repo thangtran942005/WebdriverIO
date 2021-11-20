@@ -41,12 +41,6 @@ const {uiButton, uiTextbox} = require('./controls')
          _CurrentValue = await element.getAttribute('aria-valuenow')
     }
 
-    async setPriceRange (min, max) {
-        await this.sld_Min.dragAndDrop({x:5, y:5})
-        await this.setPriceValue(this.sld_Min, min)
-        await this.setPriceValue(this.sld_Max, max)
-    }
-
     async takeTheChallengePriceFilter () {
         await uiButton('NEXT').click()
         // Get Min and Max chanllenge
@@ -59,20 +53,20 @@ const {uiButton, uiTextbox} = require('./controls')
         await this.setPriceValue(this.sld_Min, _MinRrice)
         await this.setPriceValue(this.sld_Max, _MaxRrice)
         // Get total Products
-        let _TotalProduct = await browser.$$(this.listProduct).length
+        let _TotalProduct = await this.listProduct.length
         let _TotalPage = await this.lnk_GoPage.getProperty('textContent')
         // Count next page if have
         if(_TotalPage != '') {
             _TotalPage = parseInt(_TotalPage)
             _TotalProduct = _TotalProduct*(_TotalPage-1)
             await this.lnk_GoPage.click()
-            let _LastestPage = await browser.$$(this.listProduct).length
+            let _LastestPage = await this.listProduct.length
             _TotalProduct = _TotalProduct + _LastestPage
         }
         // Set total Products
         await uiTextbox(`How many products are there ?`).setValue(_TotalProduct)
         await uiButton('CHECK').click()
     }
-
  }
+
  module.exports = new ProductsPage()

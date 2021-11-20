@@ -1,6 +1,6 @@
 module.exports = class Page {
 
-    get listProduct () { return "//div[starts-with(@class,'MuiContainer-root')]/div//a//img"}
+    get listProduct () { return $$("//div[starts-with(@class,'MuiContainer-root')]/div//a//img")}
 
     get lbl_CheckResult () { return $('//div[@data-test-check-result]/p') }
     /**
@@ -12,21 +12,4 @@ module.exports = class Page {
         browser.maximizeWindow()
     }
 
-    // get button (label) {
-    //     return $(`//button[normalize-space(.)="${label}"]`)
-    // }
-
-    // get textbox (label) {
-    //     return $(`//*[text()="${label}"]/following::input[1]`)
-    // }
-
-    // get radio(label) {
-    //     return $(`//span[text()="${label}"]/..//input[@type='radio']`)
-    // }
-
-    // get menu (label) {
-    //     return $(`a[@role='button'][text()="${label}"]`)
-    // }
-
-    // get checkResult () { return $('//div[@data-test-check-result]/p')}
 }

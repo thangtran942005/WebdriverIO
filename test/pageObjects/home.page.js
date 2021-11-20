@@ -19,18 +19,18 @@ const {uiButton, uiRadio, uiMenu, uiTextbox} = require('./controls')
 
     async takeTheChallengeDiscount () {
         await uiButton('TAKE THE CHALLENGE').click()
-        let _discount = await this.lbl_Discount.getText()
-        _discount = _discount.split(' ')[3]
-        await uiRadio(_discount).click()
+        let _Discount = await this.lbl_Discount.getText()
+        _Discount = _Discount.split(' ')[3]
+        await uiRadio(_Discount).click()
         await uiButton('CHECK').click()
     }
 
     async takeTheChallengeNewArrivals () {
         await uiButton('NEXT').click()
-        let _category = await this.lbl_Category.getText()
-        await uiButton(_category).click()
-        let _totalProduct = await browser.$$(this.listProduct).length
-        await uiRadio(_totalProduct).click()
+        let _Category = await this.lbl_Category.getText()
+        await uiButton(_Category).click()
+        let _TotalProduct = await this.listProduct.length
+        await uiRadio(_TotalProduct).click()
         await uiButton('CHECK').click()
     }
 

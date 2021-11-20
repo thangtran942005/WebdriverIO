@@ -1,4 +1,6 @@
 const allure = require('allure-commandline')
+const fs = require('fs')
+
 exports.config = {
     //
     // ====================
@@ -123,8 +125,8 @@ exports.config = {
     framework: 'mocha',
     //
     // The number of times to retry the entire specfile when it fails as a whole
-    // specFileRetries: 1,
-    //
+    specFileRetries: 1,
+    
     // Delay in seconds between the spec file retry attempts
     // specFileRetriesDelay: 0,
     //
@@ -162,8 +164,10 @@ exports.config = {
      * @param {Object} config wdio configuration object
      * @param {Array.<Object>} capabilities list of capabilities details
      */
-    // onPrepare: function (config, capabilities) {
-    // },
+     onPrepare: function (config, capabilities) {
+        fs.rmdirSync('./allure-results', { recursive: true })
+        // fs.rmdirSync('./allure-report', { recursive: true })
+    },
     /**
      * Gets executed before a worker process is spawned and can be used to initialise specific service
      * for that worker as well as modify runtime environments in an async fashion.
