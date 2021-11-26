@@ -13,7 +13,6 @@ jobs:
       - name: Echo secrets
         run: echo "Password:" ${{ secrets.SQL_PASSWORD }} "***"
         
-jobs:
   ci-test:
     runs-on: ubuntu-latest
     steps:
