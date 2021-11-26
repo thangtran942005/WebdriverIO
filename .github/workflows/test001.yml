@@ -8,7 +8,5 @@ jobs:
     steps:
       - name: Echo a string
         run: echo "Deploy Workflow"
-      - name: Echo current date 1
-        run: echo "Current date: $now"
-      - name: Echo current date 2
-        run: echo $(date)
+      - name: Echo current date
+        run: echo $(date +%s)
