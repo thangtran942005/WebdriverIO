@@ -3,12 +3,21 @@ name: Workflow name
 on: [push]
 
 jobs:
-  run-commands:
+  ci-build:
     runs-on: ubuntu-latest
     steps:
       - name: Echo a string
-        run: echo "Deploy Workflow"
+        run: echo "Build Workflow"
       - name: Echo current date
         run: echo $(date +%s) + $(date)
       - name: Echo secrets
         run: echo "Password:" ${{ secrets.SQL_PASSWORD }} "***"
+        
+jobs:
+  ci-test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Echo a string
+        run: echo "Test Workflow"
+      - name: Echo current date
+        run: echo "Current date:" $(date)
