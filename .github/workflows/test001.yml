@@ -9,4 +9,4 @@ jobs:
             - name: Echo a string
             - run: echo "Deploy Workflow"
             - name: Echo current date
-            - run: echo %date%_%time%
+            - run: echo "test show log"
