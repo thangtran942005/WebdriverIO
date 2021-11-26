@@ -9,4 +9,6 @@ jobs:
       - name: Echo a string
         run: echo "Deploy Workflow"
       - name: Echo current date
-        run: echo $(date +%s)
+        run: echo $(date +%s) + $(date)
+      - name: Echo secrets
+        run: echo "Password:" ${{ secrets.SQL_PASSWORD }} "***"
